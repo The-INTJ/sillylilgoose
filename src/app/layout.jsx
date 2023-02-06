@@ -1,16 +1,18 @@
-'use client'
-import './globals.css'
-import Login from '../pages/Login';
-import { useState } from 'react';
+import './globals.scss'
+import Header from '@/components/Header';
 
 export default function RootLayout({ children }) {
-  const [loggedIn, setLoggedIn] = useState(false);
 
   return (
     <html lang="en">
-      <head />
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+        <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet" />
+      </head>
       <body>
-        {loggedIn ? children : <Login setLoggedIn={() => setLoggedIn(true)} />}
+        <Header />
+        {children}
       </body>
     </html>
   )
