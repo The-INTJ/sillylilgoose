@@ -8,12 +8,12 @@ const Frog = (props) => {
         tongue = null;
     }
   return (
-    <div class={styles.container}>
-      <div class={styles.legL}></div>
-      <div class={styles.legR}></div>
-      <div class={styles.body}></div>
-      <div class={styles.face}>
-        <div class={styles.eyes}></div>
+    <div className={styles.container}>
+      <div className={styles.legL}></div>
+      <div className={styles.legR}></div>
+      <div className={styles.body}></div>
+      <div className={styles.face}>
+        <div className={styles.eyes}></div>
         {tongue}
       </div>
     </div>

@@ -9,8 +9,11 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <h1>TBD</h1>
-      <HeartCard 
-        note='DESCRIPTION DESCRIPTION text text and text and text and text and textDESCRIPTION DESCRIPTION text text and text and text and text and textDESCRIPTION DESCRIPTION text text and text and text and text and text'/>
+      <HeartCard
+        priority={true}
+        placeholder='blur'
+        note='DESCRIPTION DESCRIPTION text text and text and text and text and textDESCRIPTION DESCRIPTION text text and text and text and text and textDESCRIPTION DESCRIPTION text text and text and text and text and text'
+        altText='heart' />
       <p style={{marginTop:1000 + 'px'}}>YEEEEE</p>
     </main>
   )
