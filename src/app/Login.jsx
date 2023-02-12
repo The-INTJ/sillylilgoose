@@ -1,13 +1,16 @@
-const Login = (props)  => {
+import styles from '@/styles/pages/Login.module.scss'
+
+const Login = (props) => {
+    function checkInput(e) {
+        if (e.target.value.toLowerCase() === 'frog10') {
+            props.setLoggedIn(true);
+        }
+    }
     return (
-        <div>
+        <div className={styles.loginContainer}>
             <h1>Login</h1>
-            <div>
-                <input type='text' />
-                <input type='password' />
-                <button onClick={() => props.setLoggedIn()}>LOGIN</button>
-                <p>{props.loggedIn}</p>
-            </div>
+            <input type='password' onInput={(e) => checkInput(e)} />
+            <p>Favorite animal and our aniversay (just the day)</p>
         </div>
     )
 }
