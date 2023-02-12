@@ -1,14 +1,49 @@
 import { firestore } from './firebase';
 
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, doc, getDoc } from "firebase/firestore";
 
-export async function getNotes () {
+export async function getNotes() {
     const noteCollection = collection(firestore, "notes");
     const noteCollSnap = await getDocs(noteCollection);
     let notes = [];
     noteCollSnap.forEach((doc) => {
         notes.push(doc.data());
     })
-    console.log(notes)
     return notes;
+}
+
+export async function getHomeTitle() {
+    const docRef = doc(firestore, "titles", "home");
+    const docSnap = await getDoc(docRef);
+    let title;
+    if (docSnap.exists()) {
+        title = docSnap.data();
+    } else {
+        console.log("No such document!");
+    }
+    return title;
+}
+
+export async function getInfoTitle() {
+    const docRef = doc(firestore, "titles", "info");
+    const docSnap = await getDoc(docRef);
+    let title;
+    if (docSnap.exists()) {
+        title = docSnap.data();
+    } else {
+        console.log("No such document!");
+    }
+    return title;
+}
+
+export async function getInfo() {
+    const docRef = doc(firestore, "info", "plans");
+    const docSnap = await getDoc(docRef);
+    let plans;
+    if (docSnap.exists()) {
+        plans = docSnap.data();
+    } else {
+        console.log("No such document!");
+    }
+    return plans;
 }

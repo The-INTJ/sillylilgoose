@@ -8,5 +8,8 @@
 
     input {
         @include default-button-styles();
+        &:hover, &:focus, &:focus-within {
+            outline: none;
+        }
     }
 }
