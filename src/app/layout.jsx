@@ -2,10 +2,11 @@
 import './globals.scss'
 import Header from '../components/Header';
 import Login from './Login';
-import { useState } from 'react';
+import { UserContext } from "@lib/context";
+import { useUserData } from '@lib/hooks';
 
 export default function RootLayout({ children }) {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const userData = useUserData();
   return (
 
     <html lang="en">
@@ -15,8 +16,10 @@ export default function RootLayout({ children }) {
         <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet" />
       </head>
       <body>
-        {loggedIn ? <Header /> : null}
-        {loggedIn ? children : <Login setLoggedIn={() => setLoggedIn(true)} />}
+        <UserContext.Provider value={userData} >
+          {userData.username ? <Header /> : null}
+          {userData.username ? children : <Login />}
+        </UserContext.Provider>
       </body>
     </html>
   )

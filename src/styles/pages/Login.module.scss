@@ -12,4 +12,9 @@
             outline: none;
         }
     }
+
+    button {
+        @include default-button-styles();
+        margin-top: 1rem;
+    }
 }

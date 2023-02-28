@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import HeartCard from '@/components/HeartCard'
 import styles from '@/styles/pages/Home.module.scss'
-import { getHomeTitle, getNotes } from 'lib/functions'
+import { getTitle, getNotes } from 'lib/functions'
 import { useEffect, useState } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -19,8 +19,8 @@ export default function Home() {
 
   async function getServerData() {
     const _notes = await getNotes();
-    const _title = await getHomeTitle();
-    setTitle(_title.greeting);
+    const _title = await getTitle('home');
+    setTitle(_title);
 
     let old = [];
     let curr = [];

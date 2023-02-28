@@ -1,16 +1,19 @@
-import styles from '@/styles/pages/Login.module.scss'
+'use client'
+import styles from '@/styles/pages/Login.module.scss';
+import { useState } from 'react';
+import {
+    signInWithEmailAndPassword
+} from "firebase/auth";
+import { auth } from '@lib/firebase';
 
-const Login = (props) => {
-    function checkInput(e) {
-        if (e.target.value.toLowerCase() === 'frog10') {
-            props.setLoggedIn(true);
-        }
-    }
+const Login = () => {
+    const [password, setPassword] = useState("");
+
     return (
         <div className={styles.loginContainer}>
             <h1>Login</h1>
-            <input type='password' onInput={(e) => checkInput(e)} />
-            <p>Favorite animal and our aniversay (just the day)</p>
+            <input type='password' onInput={(e) => setPassword(e.target.value.toLowerCase())}/>
+            <button onClick={() => signInWithEmailAndPassword(auth, 'adeline@email.com', password)}>Login</button>
         </div>
     )
 }

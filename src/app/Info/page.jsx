@@ -1,8 +1,8 @@
 'use client'
 import Frog from "@/components/Frog";
 import RevealText from "@/components/RevealText";
-import styles from "../../styles/pages/Info.module.scss";
-import { getInfo, getInfoTitle } from "lib/functions";
+import styles from "@/styles/pages/Info.module.scss";
+import { getInfo, getTitle } from "@lib/functions";
 import { useState, useEffect } from "react";
 
 
@@ -13,9 +13,9 @@ const Info = (props) => {
 
   async function getServerData() {
     const _info = await getInfo();
-    const _title = await getInfoTitle();
+    const _title = await getTitle();
     setInfo(_info);
-    setTitle(_title.greeting);
+    setTitle(_title);
   }
 
   useEffect(() => {
@@ -28,7 +28,6 @@ const Info = (props) => {
 
       {info ? Object.entries(info).map((text, index) => {
         let textArr = text.toString().split(',');
-        console.log(textArr);
         return <RevealText
           key={index}
           activateText={true}

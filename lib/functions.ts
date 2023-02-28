@@ -1,6 +1,7 @@
 import { firestore } from './firebase';
 
 import { collection, getDocs, doc, getDoc } from "firebase/firestore";
+import { getAuth, } from "firebase/auth";
 
 export async function getNotes() {
     const noteCollection = collection(firestore, "notes");
@@ -10,6 +11,19 @@ export async function getNotes() {
         notes.push(doc.data());
     })
     return notes;
+}
+
+export async function getTitle(req: string) {
+    req = req ? req : 'error';
+    const docRef = doc(firestore, "titles", req);
+    const docSnap = await getDoc(docRef);
+    let title: string;
+    if (docSnap.exists()) {
+        title = docSnap.data().greeting;
+    } else {
+        console.log("No such document!");
+    }
+    return title;
 }
 
 export async function getHomeTitle() {

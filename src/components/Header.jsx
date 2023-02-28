@@ -8,8 +8,8 @@ const Header = (props) => {
         <Link className={styles.link} href="/">
           {'notes <3'}
         </Link>
-        <Link className={styles.link} href="/Info">
-          Planzzz
+        <Link className={styles.link} href="/Frog">
+          frogs :)
         </Link>
       </div>
     </div>
