@@ -1,5 +1,5 @@
 'use client'
-import Frog from "@/components/Frog";
+import Frog from "@/components/Frog/Frog";
 import RevealText from "@/components/RevealText";
 import styles from "@/styles/pages/Info.module.scss";
 import { getInfo, getTitle } from "@lib/functions";

@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import HeartCard from '@/components/HeartCard'
-import styles from '@/styles/pages/Home.module.scss'
+import styles from '@/styles/pages/home/Home.module.scss'
 import { getTitle, getNotes } from 'lib/functions'
 import { useEffect, useState } from 'react'
 

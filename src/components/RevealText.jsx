@@ -1,4 +1,4 @@
-import styles from "@/styles/components/RevealText.module.scss";
+import styles from "@/styles/components/RevealText/RevealText.module.scss";
 
 const RevealText = (props) => {
     let content;

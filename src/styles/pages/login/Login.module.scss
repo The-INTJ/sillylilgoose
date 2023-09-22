@@ -1,4 +1,5 @@
-@import "../utility/utility.scss";
+@import "@utilities/utility.scss";
+@import "./spooky.scss";
 
 .loginContainer {
     display: flex;
@@ -17,4 +18,7 @@
         @include default-button-styles();
         margin-top: 1rem;
     }
+
+    // Spooky season
+    @include spoopy();
 }

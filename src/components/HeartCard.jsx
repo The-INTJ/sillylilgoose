@@ -1,4 +1,4 @@
-import styles from "../styles/components/HeartCard.module.scss";
+import styles from "../styles/components/HeartCard/HeartCard.module.scss";
 import Image from "next/image";
 import img from "/public/heart-dark.png";
 
