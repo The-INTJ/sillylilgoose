@@ -1,5 +1,4 @@
-import styles from "@/styles/components/Frog/Frog.module.scss";
-import { useState, useEffect } from "react";
+import styles from "@/styles/components/frog/Frog.module.scss";
 
 const Frog = (props) => {
 

@@ -11,6 +11,9 @@ const Header = (props) => {
         <Link className={styles.link} href="/Frog">
           frogs :)
         </Link>
+        <Link className={styles.link} href="/Spoopy">
+          {"\u{1F47B}"}
+        </Link>
       </div>
     </div>
   );
