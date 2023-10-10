@@ -1,4 +1,4 @@
-import styles from "@/styles/components/frog/Frog.module.scss";
+import styles from "@/styles/components/Frog/Frog.module.scss";
 
 const Frog = (props) => {
 

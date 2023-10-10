@@ -1,7 +1,7 @@
 'use client'
 import Frog from "@/components/Frog";
 import RevealText from "@/components/RevealText";
-import styles from "@/styles/pages/Info/Info.module.scss";
+import styles from "@/styles/pages/info/Info.module.scss";
 import { getInfo, getTitle } from "@lib/functions";
 import { useState, useEffect } from "react";
 
