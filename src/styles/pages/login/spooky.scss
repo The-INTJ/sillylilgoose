@@ -1,0 +1,24 @@
+@mixin spoopy {
+
+  &.spoopy {
+
+    background-color: $spooky-black;
+  
+    h1 {
+      color: $spooky-orange;
+      text-shadow: 1px 1px $spooky-purple;
+    }
+    
+    input, button {
+      border: 2px solid $spooky-purple;
+      color: $spooky-orange;
+      
+      &:hover {
+        background-color: $spooky-black;
+        color: $spooky-purple;
+      }
+    }
+
+  }
+
+}

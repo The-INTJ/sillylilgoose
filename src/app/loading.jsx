@@ -1,4 +1,4 @@
-import styles from '@/styles/pages/loading.module.scss'
+import styles from '@/styles/foundational/loading.module.scss'
 
 const loading = (props) => {
     

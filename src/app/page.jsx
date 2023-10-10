@@ -1,8 +1,8 @@
 'use client'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
-import HeartCard from '@/components/HeartCard'
-import styles from '@/styles/pages/Home.module.scss'
+import NoteCard from '@/components/NoteCard'
+import styles from '@/styles/pages/home/Home.module.scss'
 import { getTitle, getNotes } from 'lib/functions'
 import { useEffect, useState } from 'react'
 
@@ -39,7 +39,7 @@ export default function Home() {
     <main className={styles.main}>
       <h1>{title}</h1>
       {currentNotes ? currentNotes.map((note, index) => {
-        return <HeartCard
+        return <NoteCard
           key={index}
           priority={true}
           placeholder='blur'
@@ -50,7 +50,7 @@ export default function Home() {
       <hr />
       <button className={styles.oldNotes} onClick={() => setExpanded(!expanded)}>
         {oldNotes ? oldNotes.map((note, index) => {
-          return <HeartCard
+          return <NoteCard
             key={index}
             priority={true}
             placeholder='blur'

@@ -1,0 +1,70 @@
+@import "@utilities/utility.scss";
+
+
+@mixin default() {
+  .heart {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stacked {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 40px;
+
+    &.noHeight {
+      height: unset;
+    }
+  }
+
+  .imageContainer,
+  .imageContainer img {
+    width: 370px;
+    height: auto;
+  }
+
+  .note {
+    position: absolute;
+    top: 55px;
+    width: 300px;
+    text-align: center;
+    font-family: $default-font;
+    font-size: large;
+    color: $white;
+  }
+}
+
+.default {
+  @include default();
+}
+
+.spoopy {
+  @include default();
+
+  .note {
+    display: none;
+    position: absolute;
+    top: 250px;
+    width: 450px;
+    text-align: center;
+    font-family: $default-font;
+    font-size: xx-large;
+    color: $spooky-burnt-orange;
+    -webkit-text-stroke-width: thin;
+    -webkit-text-stroke-color: white;
+  }
+
+  .noHeight .note {
+    display: block;
+  }
+
+  .imageContainer,
+  .imageContainer img {
+    width: 450px;
+    height: auto;
+  }
+}

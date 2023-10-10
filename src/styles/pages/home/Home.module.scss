@@ -3,6 +3,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    h1 {
+        color: white;
+    }
+    hr {
+        display: none;
+    }
 }
 
 .oldNotes {

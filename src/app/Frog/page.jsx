@@ -1,6 +1,6 @@
 'use client'
 import Frog from "@/components/Frog";
-import styles from "@/styles/pages/Frog.module.scss";
+import styles from "@/styles/pages/frog/Frog.module.scss";
 import { getTitle } from "@lib/functions";
 import { useState, useEffect } from "react";
 

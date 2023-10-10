@@ -1,4 +1,4 @@
-import styles from "../styles/foundational/Header.module.scss";
+import styles from "../styles/foundational/header/Header.module.scss";
 import Link from "next/dist/client/link";
 
 const Header = (props) => {
@@ -10,6 +10,9 @@ const Header = (props) => {
         </Link>
         <Link className={styles.link} href="/Frog">
           frogs :)
+        </Link>
+        <Link className={styles.link} href="/Spoopy">
+          {"\u{1F47B}"}
         </Link>
       </div>
     </div>
