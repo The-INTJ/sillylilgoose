@@ -46,7 +46,6 @@
   @include default();
 
   .note {
-    display: none;
     position: absolute;
     top: 250px;
     max-width: 450px;
@@ -58,6 +57,9 @@
     -webkit-text-stroke-color: white;
   }
 
+  .stacked .note {
+    display: none;
+  }
   .noHeight .note {
     display: block;
   }
