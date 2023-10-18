@@ -25,3 +25,21 @@ export function useUserData() {
 
   return { user, username };
 }
+
+export function useCachedData(key: string, getData: Function) {
+  const [data, setData] = useState(() => {
+    const cachedData = localStorage.getItem(key);
+    return cachedData ? JSON.parse(cachedData) : null;
+  });
+
+  useEffect(() => {
+    if (!data) {
+      getData().then(newData => {
+        setData(newData);
+        localStorage.setItem(key, JSON.stringify(newData));
+      });
+    }
+  }, [data, getData, key]);
+
+  return data;
+}

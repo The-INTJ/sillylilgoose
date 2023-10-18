@@ -3,6 +3,7 @@ import Frog from "@/components/Frog";
 import styles from "@/styles/pages/frog/Frog.module.scss";
 import { getTitle } from "@lib/functions";
 import { useState, useEffect } from "react";
+import { useCachedData } from "lib/hooks";
 
 
 const FrogPage = () => {
@@ -21,14 +22,18 @@ const FrogPage = () => {
     return frogArray;
   }
 
-  async function getServerData() {
+  const getServerData = async () => {
     const _title = await getTitle('frog');
-    setTitle(_title);
-  }
+    return { _title };
+  };
+
+  const data = useCachedData('frogData', getServerData);
 
   useEffect(() => {
-    getServerData();
-  }, [])
+    if (data) {
+      setTitle(data._title);
+    }
+  }, [data]);
 
   return (
     <div className={styles.main}>

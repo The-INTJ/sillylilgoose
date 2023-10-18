@@ -1,6 +1,6 @@
 'use client'
 import './globals.scss'
-import Header from '../components/Header';
+import Header from '@/components/Header';
 import Login from './Login';
 import { UserContext } from "@lib/context";
 import { useUserData } from '@lib/hooks';

@@ -23,13 +23,12 @@
 
   .imageContainer,
   .imageContainer img {
-    width: 370px;
+    max-width: 370px;
+    width: 100%;
     height: auto;
   }
 
   .note {
-    position: absolute;
-    top: 55px;
     width: 300px;
     text-align: center;
     font-family: $default-font;
@@ -46,8 +45,6 @@
   @include default();
 
   .note {
-    position: absolute;
-    top: 250px;
     max-width: 450px;
     text-align: center;
     font-family: $default-font;
@@ -66,7 +63,8 @@
 
   .imageContainer,
   .imageContainer img {
-    width: 450px;
+    max-width: 450px;
+    width: 100%;
     height: auto;
   }
 }

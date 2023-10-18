@@ -4,6 +4,7 @@ import { Inter } from '@next/font/google'
 import NoteCard from '@/components/NoteCard'
 import styles from '@/styles/pages/home/Home.module.scss'
 import { getTitle, getNotes } from 'lib/functions'
+import { useCachedData} from 'lib/hooks'
 import { useEffect, useState } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -17,23 +18,26 @@ export default function Home() {
   const [epoch, setEpoch] = useState(Math.round(Date.now() / 1000));
   const [expanded, setExpanded] = useState(false);
 
-  async function getServerData() {
+  const getServerData = async () => {
     const _notes = await getNotes();
     const _title = await getTitle('home');
-    setTitle(_title);
-
     let old = [];
     let curr = [];
     for (let i = 0; i < _notes.length; i++) {
       _notes[i].date.seconds < epoch ? old.push(_notes[i]) : curr.push(_notes[i]);
     }
-    setCurrentNotes(curr);
-    setOldNotes(old);
-  }
+    return { curr, old, _title };
+  };
+
+  const data = useCachedData('homeData', getServerData);
 
   useEffect(() => {
-    getServerData();
-  }, [])
+    if (data) {
+      setCurrentNotes(data.curr);
+      setOldNotes(data.old);
+      setTitle(data._title);
+    }
+  }, [data]);
 
   return (
     <main className={styles.main}>

@@ -1,4 +1,5 @@
 @import "@utilities/utility.scss";
+@import "./spoopyheader.scss";
 
 .headerContainer {
   z-index: 999;
@@ -35,3 +36,4 @@
   font-size: larger;
 }
 
+@include spoopy();

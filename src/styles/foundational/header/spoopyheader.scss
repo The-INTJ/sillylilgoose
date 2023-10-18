@@ -1,0 +1,6 @@
+@mixin spoopy () {
+    .header {
+        background: linear-gradient(to right, $light-blue 90%, $spooky-burnt-orange); // gradient background
+
+    }
+}
