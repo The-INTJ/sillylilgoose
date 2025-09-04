@@ -14,10 +14,14 @@ const FrogPage = () => {
   function getFrogs() {
     let frogArray = [];
     for (let index = 0; index < numFrogs; index++) {
-      frogArray.push(<Frog 
-        activateTongue={true}
-        orientation={Math.random()}
-        moves={Math.random() > 0.5} />);
+      frogArray.push(
+        <Frog
+          key={`dynamic-frog-${index}`}
+          activateTongue={true}
+          orientation={Math.random()}
+          moves={Math.random() > 0.5}
+        />
+      );
     }
     return frogArray;
   }
@@ -39,7 +43,7 @@ const FrogPage = () => {
     <div className={styles.main}>
       <h1>{title}</h1>
       <button className={styles.frogContainer} onClick={() => setNumFrogs(numFrogs + 1)}>
-        <Frog />
+        <Frog key="static-frog" />
         {getFrogs()}
       </button>
     </div>

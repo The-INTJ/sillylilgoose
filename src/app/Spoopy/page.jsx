@@ -10,7 +10,7 @@ import Link from 'next/link';
 const SpoopyPage = () => {
   return (
     <div className={styles.spoopy}>
-      <Image className={styles.ghostie} src={img} />
+      <Image className={styles.ghostie} src={img} alt="ghostie" />
       <h1>and more is Coming soOoOoOoOn</h1>
       <h2>(very spoopy)</h2>
       <Link 

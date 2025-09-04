@@ -1,6 +1,5 @@
 'use client'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
+import { Inter } from 'next/font/google'
 import NoteCard from '@/components/NoteCard'
 import styles from '@/styles/pages/home/Home.module.scss'
 import { getTitle, getNotes } from 'lib/functions'

@@ -1,5 +1,6 @@
+'use client'
 import styles from "../styles/foundational/header/Header.module.scss";
-import Link from "next/dist/client/link";
+import Link from "next/link";
 
 const Header = (props) => {
   return (

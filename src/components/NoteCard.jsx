@@ -10,7 +10,7 @@ const NoteCard = (props) => {
         <div className={styles.stacked + ' ' + (props.expanded ? (styles.noHeight) : '')}>
           <p className={styles.note}>{props.note}</p>
           <div className={styles.imageContainer}>
-            <Image src={computedImage} alt={props.altText} />
+            <Image src={computedImage} alt={props.altText} priority />
           </div>
         </div>
       </div>
@@ -19,7 +19,7 @@ const NoteCard = (props) => {
         <div className={styles.heart}>
           <p className={styles.note}>{props.note}</p>
           <div className={styles.imageContainer}>
-            <Image src={computedImage} alt={props.altText} />
+            <Image src={computedImage} alt={props.altText} priority />
           </div>
         </div>
       </div>
