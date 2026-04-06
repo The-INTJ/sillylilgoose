@@ -7,7 +7,7 @@
   margin-top: -50px;
 }
 .face {
-  background-color: #8ebc00;
+  background-color: var(--frog-face);
   height: 120px;
   width: 160px;
   border-radius: 50%;
@@ -22,7 +22,7 @@
   position: absolute;
   height: 60px;
   width: 120px;
-  background-color: #c1d218;
+  background-color: var(--frog-face-light);
   border-radius: 0 0 60px 60px;
   bottom: 0;
   left: 20px;
@@ -32,7 +32,7 @@
   position: absolute;
   width: 140px;
   height: 8px;
-  background-color: #477a26;
+  background-color: var(--frog-dark);
   border-radius: 5px;
   left: 10px;
   top: 55px;
@@ -40,11 +40,11 @@
 .eyes,
 .eyes:before {
   position: absolute;
-  background-color: #234106;
+  background-color: var(--frog-eye);
   height: 25px;
   width: 25px;
   border-radius: 50%;
-  box-shadow: 0 0 0 10px #ffffff, 0 0 0 18px #8ebc00;
+  box-shadow: 0 0 0 10px #ffffff, 0 0 0 18px var(--frog-face);
 }
 .eyes {
   left: 35px;
@@ -54,11 +54,11 @@
   left: 70px;
 }
 .body {
-  background-color: #c1d218;
+  background-color: var(--frog-face-light);
   height: 60px;
   width: 70px;
   border-radius: 70px 70px 0 0;
-  box-shadow: 0 -20px 0 20px #8ebc00;
+  box-shadow: 0 -20px 0 20px var(--frog-face);
   position: absolute;
   left: 165px;
   top: 230px;
@@ -69,7 +69,7 @@
   content: "";
   height: 40px;
   width: 25px;
-  background-color: #8ebc00;
+  background-color: var(--frog-face);
   top: 40px;
   transform: rotate(90deg);
 }
@@ -86,7 +86,7 @@
   position: absolute;
   height: 85px;
   width: 50px;
-  background-color: #477a26;
+  background-color: var(--frog-dark);
   border-radius: 50%;
   bottom: 100px;
 }
@@ -104,7 +104,7 @@
   position: absolute;
   height: 25px;
   width: 50px;
-  background-color: #477a26;
+  background-color: var(--frog-dark);
   border-radius: 30px 30px 0 0;
   bottom: 10px;
 }
@@ -120,7 +120,7 @@
   position: absolute;
   height: 0;
   width: 8px;
-  background-color: #f57b78;
+  background-color: var(--frog-tongue);
   border-radius: 8px;
   transform: rotate(-45deg);
   transform-origin: 100% 100%;

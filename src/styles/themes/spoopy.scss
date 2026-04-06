@@ -1,0 +1,43 @@
+// Spoopy (Halloween) theme
+[data-theme="spoopy"] {
+  // Backgrounds
+  --bg: #000000;
+  --surface: #111111;
+
+  // Brand colors
+  --primary: #ff6600;
+  --primary-dark: #ae4600;
+  --secondary: #9900ff;
+  --accent: #ff6600;
+
+  // Text
+  --text: #ff6600;
+  --text-muted: #ae4600;
+  --text-on-primary: #000000;
+
+  // Header — gradient is supported because background accepts the full value
+  --header-bg: linear-gradient(to right, #89dbfe 75%, #ae4600);
+  --header-glow: rgba(255, 255, 255, 0.8);
+
+  // Inputs / buttons
+  --button-bg: #000000;
+  --button-text: #ff6600;
+  --button-border: #9900ff;
+  --button-glow: rgba(255, 255, 255, 0.6);
+
+  // Borders & shadows
+  --border: #9900ff;
+  --shadow: rgba(153, 0, 255, 0.35);
+
+  // Frog (Halloween orange frogs 🎃)
+  --frog-face: #ff6600;
+  --frog-face-light: #ff9933;
+  --frog-dark: #cc4400;
+  --frog-eye: #330000;
+  --frog-tongue: #9900ff;
+
+  // Note cards
+  --note-text: #ae4600;
+  --note-text-size: xx-large;
+  --note-text-stroke: white;
+}

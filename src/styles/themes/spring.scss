@@ -1,0 +1,45 @@
+// Spring theme — default
+// Applied to :root so it works without JS and as the baseline
+:root,
+[data-theme="spring"] {
+  // Backgrounds
+  --bg: #fdf2f0;
+  --surface: #fff7f5;
+
+  // Brand colors
+  --primary: #f4a0b5;
+  --primary-dark: #c97090;
+  --secondary: #88c9a1;
+  --accent: #ffd580;
+
+  // Text
+  --text: #3d2b1f;
+  --text-muted: #9c7b6e;
+  --text-on-primary: #3d2b1f;
+
+  // Header
+  --header-bg: #ffb7c5;
+  --header-glow: rgba(255, 150, 185, 0.65);
+
+  // Inputs / buttons
+  --button-bg: rgba(244, 160, 181, 0.15);
+  --button-text: #3d2b1f;
+  --button-border: #f4a0b5;
+  --button-glow: rgba(255, 150, 185, 0.5);
+
+  // Borders & shadows
+  --border: #f0b8c8;
+  --shadow: rgba(212, 130, 158, 0.25);
+
+  // Frog (spring green, naturally)
+  --frog-face: #8ebc00;
+  --frog-face-light: #c1d218;
+  --frog-dark: #477a26;
+  --frog-eye: #234106;
+  --frog-tongue: #f57b78;
+
+  // Note cards
+  --note-text: #3d2b1f;
+  --note-text-size: large;
+  --note-text-stroke: none;
+}

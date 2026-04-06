@@ -6,8 +6,8 @@ const NoteCard = (props) => {
   let computedImage = props.imgOverride ? props.imgOverride : img;
   return (
     props.stacked ?
-      <div className={styles.spoopy}>
-        <div className={styles.stacked + ' ' + (props.expanded ? (styles.noHeight) : '')}>
+      <div>
+        <div className={styles.stacked + ' ' + (props.expanded ? styles.noHeight : '')}>
           <p className={styles.note}>{props.note}</p>
           <div className={styles.imageContainer}>
             <Image src={computedImage} alt={props.altText} priority />
@@ -15,7 +15,7 @@ const NoteCard = (props) => {
         </div>
       </div>
       :
-      <div className={styles.spoopy}>
+      <div>
         <div className={styles.heart}>
           <p className={styles.note}>{props.note}</p>
           <div className={styles.imageContainer}>

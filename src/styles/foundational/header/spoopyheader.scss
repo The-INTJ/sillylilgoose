@@ -1,6 +1,2 @@
-@mixin spoopy () {
-    .header {
-        background: linear-gradient(to right, $light-blue 75%, $spooky-burnt-orange); // gradient background
-
-    }
-}
+// Spoopy header styles are now handled via CSS custom properties in themes/spoopy.scss
+// This file is kept for import compatibility

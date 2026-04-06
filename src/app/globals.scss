@@ -1,8 +1,13 @@
 @import '../styles/utility/utility.scss';
+@import '../styles/themes/spring.scss';
+@import '../styles/themes/spoopy.scss';
 
 body {
     font-family: $default-font;
-    background-color: black;
+    background-color: var(--bg);
+    color: var(--text);
     margin: 0;
     font-size: $font-size-normal;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
