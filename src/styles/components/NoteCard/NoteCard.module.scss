@@ -1,70 +1,50 @@
 @import "@utilities/utility.scss";
 
+.heart {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-@mixin default() {
-  .heart {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+.stacked {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 40px;
 
-  .stacked {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 40px;
-
-    &.noHeight {
-      height: unset;
-    }
-  }
-
-  .imageContainer,
-  .imageContainer img {
-    max-width: 370px;
-    width: 100%;
-    height: auto;
-  }
-
-  .note {
-    width: 300px;
-    text-align: center;
-    font-family: $default-font;
-    font-size: large;
-    color: $white;
+  &.noHeight {
+    height: unset;
   }
 }
 
-.default {
-  @include default();
+.imageContainer,
+.imageContainer img {
+  max-width: 370px;
+  width: 100%;
+  height: auto;
 }
 
-.spoopy {
-  @include default();
+.note {
+  width: 300px;
+  text-align: center;
+  font-family: $default-font;
+  font-size: var(--note-text-size, large);
+  color: var(--note-text);
+  -webkit-text-stroke-color: var(--note-text-stroke, transparent);
+  -webkit-text-stroke-width: thin;
+  transition: color 0.3s ease;
+}
 
-  .note {
-    max-width: 450px;
-    text-align: center;
-    font-family: $default-font;
-    font-size: xx-large;
-    color: $spooky-burnt-orange;
-    -webkit-text-stroke-width: thin;
-    -webkit-text-stroke-color: white;
-  }
-
-  .stacked .note {
-    display: none;
-  }
-  .noHeight .note {
-    display: block;
-  }
-
-  .imageContainer,
-  .imageContainer img {
-    max-width: 450px;
-    width: 100%;
-    height: auto;
-  }
+// In spoopy theme the stacked note is hidden until expanded
+:global([data-theme="spoopy"]) .stacked .note {
+  display: none;
+}
+:global([data-theme="spoopy"]) .stacked.noHeight .note {
+  display: block;
+}
+:global([data-theme="spoopy"]) .imageContainer,
+:global([data-theme="spoopy"]) .imageContainer img {
+  max-width: 450px;
 }
