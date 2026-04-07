@@ -8,8 +8,12 @@ export default function FeedPrompt({ onFeed }) {
 
   const handleFeed = async () => {
     setFeeding(true);
-    await onFeed();
-    setFeeding(false);
+
+    try {
+      await onFeed();
+    } finally {
+      setFeeding(false);
+    }
   };
 
   return (
@@ -22,7 +26,7 @@ export default function FeedPrompt({ onFeed }) {
         onClick={handleFeed}
         disabled={feeding}
       >
-        {feeding ? '🌿 Adding...' : '🪵 Add branches'}
+        {feeding ? 'Adding...' : 'Add branches'}
       </button>
     </div>
   );

@@ -16,7 +16,6 @@ export default function HatchSequence({ onHatch }) {
   const [petName, setPetName] = useState('');
   const [submitting, setSubmitting] = useState(false);
 
-  // Auto-advance from cracking to first prompt after animation
   const handleCrackDone = () => setStep(STEPS.ASK_PLAYER_NAME);
 
   const handlePlayerNameSubmit = (e) => {
@@ -30,9 +29,15 @@ export default function HatchSequence({ onHatch }) {
     e.preventDefault();
     if (petName.trim()) {
       setSubmitting(true);
-      await onHatch(petName.trim(), playerName.trim());
-      setSubmitting(false);
-      setStep(STEPS.CELEBRATION);
+
+      try {
+        const didHatch = await onHatch(petName.trim(), playerName.trim());
+        if (didHatch) {
+          setStep(STEPS.CELEBRATION);
+        }
+      } finally {
+        setSubmitting(false);
+      }
     }
   };
 
@@ -40,14 +45,14 @@ export default function HatchSequence({ onHatch }) {
     <div className={styles.sequence}>
       {step === STEPS.CRACKING && (
         <div className={styles.cracking} onAnimationEnd={handleCrackDone}>
-          <div className={styles.crackingEgg}>🥚</div>
+          <div className={styles.crackingEgg}>{'\u{1F95A}'}</div>
           <p className={styles.crackText}>Something is happening...</p>
         </div>
       )}
 
       {step === STEPS.ASK_PLAYER_NAME && (
         <div className={styles.step}>
-          <div className={styles.hatchingEgg}>🐣</div>
+          <div className={styles.hatchingEgg}>{'\u{1F423}'}</div>
           <p className={styles.prompt}>A tiny dragon peers up at you curiously...</p>
           <p className={styles.prompt}>What is your name?</p>
           <form onSubmit={handlePlayerNameSubmit} className={styles.inputForm}>
@@ -69,7 +74,7 @@ export default function HatchSequence({ onHatch }) {
 
       {step === STEPS.ASK_PET_NAME && (
         <div className={styles.step}>
-          <div className={styles.babyDragon}>🐉</div>
+          <div className={styles.babyDragon}>{'\u{1F409}'}</div>
           <p className={styles.prompt}>The little dragon chirps happily!</p>
           <p className={styles.prompt}>What would you like to name your dragon?</p>
           <form onSubmit={handlePetNameSubmit} className={styles.inputForm}>
@@ -95,11 +100,11 @@ export default function HatchSequence({ onHatch }) {
 
       {step === STEPS.CELEBRATION && (
         <div className={styles.celebration}>
-          <div className={styles.rollingDragon}>🐉</div>
+          <div className={styles.rollingDragon}>{'\u{1F409}'}</div>
           <p className={styles.celebrationText}>
             Yay!!! I love my name. You are now my favorite person, {playerName}!
           </p>
-          <div className={styles.sparkles}>✨🎉✨</div>
+          <div className={styles.sparkles}>{'\u2728\u{1F389}\u2728'}</div>
         </div>
       )}
     </div>

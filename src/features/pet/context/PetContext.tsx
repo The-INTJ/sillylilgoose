@@ -1,10 +1,14 @@
 import { createContext, useContext } from 'react';
 import type { DerivedPetState, PetActions } from '../domain/types';
 
+export type PetStorageMode = 'firestore' | 'local';
+
 export interface PetContextValue {
   state: DerivedPetState;
   actions: PetActions;
   loading: boolean;
+  error: string | null;
+  storageMode: PetStorageMode;
 }
 
 export const PetContext = createContext<PetContextValue | null>(null);

@@ -9,24 +9,32 @@ import DragonScene from './dragon/DragonScene';
 import styles from './PetExperience.module.scss';
 
 export default function PetExperience() {
-  const { state, actions, loading } = usePet();
+  const { state, actions, loading, error, storageMode } = usePet();
 
   if (loading) {
     return (
       <div className={styles.container}>
-        <p className={styles.loading}>✨</p>
+        <p className={styles.loading}>Loading...</p>
       </div>
     );
   }
 
   return (
     <div className={styles.container}>
+      {storageMode === 'local' && (
+        <p className={styles.notice}>
+          Pet progress is being saved on this device while Firebase access is blocked.
+        </p>
+      )}
+
+      {error && <p className={styles.error}>{error}</p>}
+
       {IS_PET_DEV && (
         <button className={styles.devReset} onClick={actions.initialize}>
-          ↺
+          Reset
         </button>
       )}
-      {/* ── Egg stages ─────────────────────────────────────── */}
+
       {(state.visualStage === 'egg_idle' ||
         state.visualStage === 'egg_needs_feeding') && (
         <div className={styles.eggArea}>
@@ -41,18 +49,16 @@ export default function PetExperience() {
           )}
 
           <p className={styles.feedCount}>
-            🪵 {state.feedingsCompleted} / 3 feedings
+            Branches fed: {state.feedingsCompleted} / 3
           </p>
         </div>
       )}
 
-      {/* ── Ready to hatch / hatching (naming flow) ──────── */}
       {(state.visualStage === 'ready_to_hatch' ||
         state.visualStage === 'hatching') && (
         <HatchSequence onHatch={actions.hatch} />
       )}
 
-      {/* ── Fully hatched dragon ─────────────────────────── */}
       {state.visualStage === 'hatched' && (
         <DragonScene
           petName={state.petName}

@@ -1,7 +1,5 @@
 import { Timestamp } from 'firebase/firestore';
 
-// ── Firestore document shape ──────────────────────────────────────────
-
 export type PetStage = 'egg' | 'hatched';
 
 export interface PetData {
@@ -12,8 +10,6 @@ export interface PetData {
   petName: string | null;
   ownerName: string | null;
 }
-
-// ── Derived UI state (computed, never stored) ─────────────────────────
 
 export type PetVisualStage =
   | 'egg_idle'
@@ -32,10 +28,8 @@ export interface DerivedPetState {
   ownerName: string | null;
 }
 
-// ── Action signatures (consumed by provider, exposed via context) ─────
-
 export interface PetActions {
-  feed: () => Promise<void>;
-  hatch: (petName: string, ownerName: string) => Promise<void>;
-  initialize: () => Promise<void>;
+  feed: () => Promise<boolean>;
+  hatch: (petName: string, ownerName: string) => Promise<boolean>;
+  initialize: () => Promise<boolean>;
 }
