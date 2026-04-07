@@ -1,32 +1,24 @@
-'use client'
 import './globals.scss'
-import Header from '@/components/Header';
-import Login from './Login';
-import ThemeProvider from '@/components/ThemeProvider';
-import { UserContext } from "@lib/context";
-import { useUserData } from '@lib/hooks';
+import AppShell from '@/components/AppShell';
+
+export const metadata = {
+  title: 'App For Adeline',
+  description: 'App For Adeline',
+  icons: {
+    icon: '/favicon.ico',
+  },
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+};
 
 export default function RootLayout({ children }) {
-  const userData = useUserData();
   return (
     <html lang="en" data-theme="spring">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
-          rel="stylesheet"
-        />
-      </head>
-      <body>
-        <ThemeProvider>
-          <UserContext.Provider value={userData}>
-            {userData.username ? <Header /> : null}
-            {userData.username ? children : <Login />}
-          </UserContext.Provider>
-        </ThemeProvider>
-      </body>
+      <body><AppShell>{children}</AppShell></body>
     </html>
   )
 }
