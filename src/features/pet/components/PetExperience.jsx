@@ -47,10 +47,10 @@ export default function PetExperience() {
         state.visualStage === 'egg_needs_feeding') && (
         <div className={styles.eggArea}>
           {state.canFeed ? (
-            <p className={styles.timer}>🔥 ready to feed!</p>
+            <p className={styles.timer}>ready! 🔥</p>
           ) : state.msUntilCanFeed > 0 ? (
             <p className={styles.timer}>
-              next feeding in {formatMs(state.msUntilCanFeed)}
+              back in {formatMs(state.msUntilCanFeed)} 🌙
             </p>
           ) : null}
           <div className={styles.sceneRow}>
@@ -64,12 +64,12 @@ export default function PetExperience() {
 
           {!state.canFeed && (
             <p className={styles.waitMessage}>
-              The egg sits quietly by the warm fire...
+              ...warm...
             </p>
           )}
 
           <p className={styles.feedCount}>
-            Branches fed: {state.feedingsCompleted} / 3
+            fed: {state.feedingsCompleted} / 3
           </p>
         </div>
       )}

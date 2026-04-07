@@ -43,7 +43,7 @@ export default function EggScene({ feedingsCompleted, canFeed, onFeed }) {
     <div className={styles.scene}>
       {canFeed && (
         <div className={styles.speechBubble}>
-          more wood please! 🍂
+          can i have more fire? 🍂
         </div>
       )}
 

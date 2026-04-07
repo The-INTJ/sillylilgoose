@@ -37,7 +37,7 @@ export default function DragonScene({ petName, ownerName }) {
       )}
 
       <p className={styles.idleMessage}>
-        {petName} loves being with you, {ownerName}!
+        {'hewwo :)'}
       </p>
     </div>
   );

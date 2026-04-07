@@ -46,27 +46,27 @@ export default function HatchSequence({ onHatch }) {
       {step === STEPS.CRACKING && (
         <div className={styles.cracking} onAnimationEnd={handleCrackDone}>
           <div className={styles.crackingEgg}>{'\u{1F95A}'}</div>
-          <p className={styles.crackText}>Something is happening...</p>
+          <p className={styles.crackText}>...something is happening...</p>
         </div>
       )}
 
       {step === STEPS.ASK_PLAYER_NAME && (
         <div className={styles.step}>
           <div className={styles.hatchingEgg}>{'\u{1F423}'}</div>
-          <p className={styles.prompt}>A tiny dragon peers up at you curiously...</p>
-          <p className={styles.prompt}>What is your name?</p>
+          <p className={styles.prompt}>...hi?</p>
+          <p className={styles.prompt}>what's your name...?</p>
           <form onSubmit={handlePlayerNameSubmit} className={styles.inputForm}>
             <input
               type="text"
               value={playerName}
               onChange={(e) => setPlayerName(e.target.value)}
               className={styles.nameInput}
-              placeholder="Your name..."
+              placeholder="your name..."
               autoFocus
               maxLength={30}
             />
             <button type="submit" className={styles.submitButton} disabled={!playerName.trim()}>
-              Tell them
+              tell me!
             </button>
           </form>
         </div>
@@ -75,15 +75,15 @@ export default function HatchSequence({ onHatch }) {
       {step === STEPS.ASK_PET_NAME && (
         <div className={styles.step}>
           <div className={styles.babyDragon}>{'\u{1F409}'}</div>
-          <p className={styles.prompt}>The little dragon chirps happily!</p>
-          <p className={styles.prompt}>What would you like to name your dragon?</p>
+          <p className={styles.prompt}>i'm so happy!</p>
+          <p className={styles.prompt}>can i have a name?</p>
           <form onSubmit={handlePetNameSubmit} className={styles.inputForm}>
             <input
               type="text"
               value={petName}
               onChange={(e) => setPetName(e.target.value)}
               className={styles.nameInput}
-              placeholder="Dragon name..."
+              placeholder="dragon name..."
               autoFocus
               maxLength={30}
             />
@@ -92,7 +92,7 @@ export default function HatchSequence({ onHatch }) {
               className={styles.submitButton}
               disabled={!petName.trim() || submitting}
             >
-              {submitting ? 'Naming...' : 'Name them!'}
+              {submitting ? 'thinking...' : 'name me!'}
             </button>
           </form>
         </div>
@@ -102,7 +102,7 @@ export default function HatchSequence({ onHatch }) {
         <div className={styles.celebration}>
           <div className={styles.rollingDragon}>{'\u{1F409}'}</div>
           <p className={styles.celebrationText}>
-            Yay!!! I love my name. You are now my favorite person, {playerName}!
+            yay!! i love my name. you're my favorite person, {playerName}! 💕
           </p>
           <div className={styles.sparkles}>{'\u2728\u{1F389}\u2728'}</div>
         </div>

@@ -19,14 +19,14 @@ export default function FeedPrompt({ onFeed }) {
   return (
     <div className={styles.prompt}>
       <p className={styles.message}>
-        The fire is getting low... add some branches?
+        can i have more fire? 🍂
       </p>
       <button
         className={styles.feedButton}
         onClick={handleFeed}
         disabled={feeding}
       >
-        {feeding ? 'Adding...' : 'Add branches'}
+        {feeding ? 'adding...' : 'add branches'}
       </button>
     </div>
   );
