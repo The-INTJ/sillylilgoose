@@ -34,16 +34,3 @@
   text-decoration: none;
   font-size: larger;
 }
-
-.themeToggle {
-  @include no-button-style();
-  font-size: larger;
-  cursor: pointer;
-  line-height: 1;
-  padding: 0 2px;
-  transition: transform 0.2s ease;
-
-  &:hover {
-    transform: scale(1.25);
-  }
-}

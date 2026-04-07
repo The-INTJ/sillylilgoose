@@ -1,26 +1,53 @@
 'use client'
-import { useState, useEffect } from 'react';
-import { ThemeContext, THEMES } from '@lib/ThemeContext';
+import { useEffect, useState } from 'react';
+import { doc, getDoc } from 'firebase/firestore';
+import { ThemeContext } from '@lib/ThemeContext';
+import { firestore } from '@lib/firebase';
+import {
+  DEFAULT_THEME,
+  getThemeMetadata,
+  normalizeThemeName,
+  THEME_CONFIG,
+} from '@lib/theme';
 
 export default function ThemeProvider({ children }) {
-  const [theme, setThemeState] = useState('spring');
+  const [theme, setTheme] = useState(DEFAULT_THEME);
 
-  // Load persisted theme on mount
   useEffect(() => {
-    const saved = localStorage.getItem('theme');
-    if (saved && THEMES.includes(saved)) {
-      setThemeState(saved);
+    let isMounted = true;
+
+    async function loadTheme() {
+      try {
+        const themeDoc = await getDoc(
+          doc(firestore, THEME_CONFIG.collection, THEME_CONFIG.document)
+        );
+        const nextTheme = normalizeThemeName(
+          themeDoc.exists() ? themeDoc.data()?.[THEME_CONFIG.field] : undefined
+        );
+
+        if (isMounted) {
+          setTheme(nextTheme);
+        }
+      } catch {
+        if (isMounted) {
+          setTheme(DEFAULT_THEME);
+        }
+      }
     }
+
+    loadTheme();
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
-  // Apply theme attribute to <html> and persist
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
   }, [theme]);
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme: setThemeState }}>
+    <ThemeContext.Provider value={{ theme, metadata: getThemeMetadata(theme) }}>
       {children}
     </ThemeContext.Provider>
   );

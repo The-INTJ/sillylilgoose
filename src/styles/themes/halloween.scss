@@ -1,5 +1,5 @@
-// Spoopy (Halloween) theme
-[data-theme="spoopy"] {
+// Halloween theme
+[data-theme="halloween"] {
   // Backgrounds
   --bg: #000000;
   --surface: #111111;
@@ -15,7 +15,7 @@
   --text-muted: #ae4600;
   --text-on-primary: #000000;
 
-  // Header — gradient is supported because background accepts the full value
+  // Header background supports gradients
   --header-bg: linear-gradient(to right, #89dbfe 75%, #ae4600);
   --header-glow: rgba(255, 255, 255, 0.8);
 
@@ -29,7 +29,7 @@
   --border: #9900ff;
   --shadow: rgba(153, 0, 255, 0.35);
 
-  // Frog (Halloween orange frogs 🎃)
+  // Frog
   --frog-face: #ff6600;
   --frog-face-light: #ff9933;
   --frog-dark: #cc4400;

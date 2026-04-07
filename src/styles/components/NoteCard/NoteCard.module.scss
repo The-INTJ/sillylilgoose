@@ -1,6 +1,7 @@
 @import "@utilities/utility.scss";
 
-.heart {
+.card,
+.stacked {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -8,22 +9,39 @@
 }
 
 .stacked {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   height: 40px;
-
-  &.noHeight {
-    height: unset;
-  }
 }
 
-.imageContainer,
-.imageContainer img {
+.expanded {
+  height: unset;
+}
+
+.artContainer {
+  width: 100%;
   max-width: 370px;
+  display: flex;
+  justify-content: center;
+}
+
+.artImage {
   width: 100%;
   height: auto;
+}
+
+.springArt {
+  color: var(--primary-dark);
+}
+
+.halloweenArt {
+  max-width: 450px;
+}
+
+.symbolArt {
+  display: block;
+  font-family: 'Material Symbols Outlined';
+  font-size: clamp(11rem, 52vw, 17rem);
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+  line-height: 1;
 }
 
 .note {
@@ -37,14 +55,10 @@
   transition: color 0.3s ease;
 }
 
-// In spoopy theme the stacked note is hidden until expanded
-:global([data-theme="spoopy"]) .stacked .note {
+.hideCollapsedText .note {
   display: none;
 }
-:global([data-theme="spoopy"]) .stacked.noHeight .note {
+
+.hideCollapsedText.expanded .note {
   display: block;
-}
-:global([data-theme="spoopy"]) .imageContainer,
-:global([data-theme="spoopy"]) .imageContainer img {
-  max-width: 450px;
 }

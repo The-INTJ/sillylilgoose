@@ -1,12 +1,19 @@
 import { createContext, useContext } from 'react';
+import {
+  DEFAULT_THEME,
+  getThemeMetadata,
+  type ThemeMetadata,
+  type ThemeName,
+} from './theme';
 
-export type ThemeName = 'spring' | 'spoopy';
-
-export const THEMES: ThemeName[] = ['spring', 'spoopy'];
-
-export const ThemeContext = createContext<{
+type ThemeContextValue = {
   theme: ThemeName;
-  setTheme: (t: ThemeName) => void;
-}>({ theme: 'spring', setTheme: () => {} });
+  metadata: ThemeMetadata;
+};
+
+export const ThemeContext = createContext<ThemeContextValue>({
+  theme: DEFAULT_THEME,
+  metadata: getThemeMetadata(DEFAULT_THEME),
+});
 
 export const useTheme = () => useContext(ThemeContext);
