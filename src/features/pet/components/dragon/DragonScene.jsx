@@ -2,6 +2,7 @@
 
 import { useState, useCallback } from 'react';
 import styles from './DragonScene.module.scss';
+import PetMessageRotator from '../PetMessageRotator';
 
 export default function DragonScene({ petName, ownerName }) {
   const [rolling, setRolling] = useState(false);
@@ -36,9 +37,12 @@ export default function DragonScene({ petName, ownerName }) {
         <div className={styles.speechBubble}>wheeee!</div>
       )}
 
-      <p className={styles.idleMessage}>
-        {'hewwo :)'}
-      </p>
+      <PetMessageRotator
+        scene="mainScreenIdle"
+        useTimePassed
+        ownerName={ownerName}
+        className={styles.idleMessage}
+      />
     </div>
   );
 }

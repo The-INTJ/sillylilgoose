@@ -48,7 +48,7 @@ Speaks in simple sentences, warming up.
 cracking:         "...something is happening..."
 first peek:       "...hi?"
 asks your name:   "what's your name...?"
-happy chirp:      "i'm so happy!"
+happy chirp:      "yayyyy!"
 asks its name:    "can i have a name?"
 celebration:      "yay!! i love my name. you're my favorite person, {playerName}! 💕"
 ```

@@ -75,7 +75,7 @@ export default function HatchSequence({ onHatch }) {
       {step === STEPS.ASK_PET_NAME && (
         <div className={styles.step}>
           <div className={styles.babyDragon}>{'\u{1F409}'}</div>
-          <p className={styles.prompt}>i'm so happy!</p>
+          <p className={styles.prompt}>yayyy!</p>
           <p className={styles.prompt}>can i have a name?</p>
           <form onSubmit={handlePetNameSubmit} className={styles.inputForm}>
             <input
