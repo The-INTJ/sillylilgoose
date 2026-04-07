@@ -4,7 +4,7 @@ const loading = (props) => {
     
     return (
         <div className={styles.loading}>
-            <p>Here's some candy while you wait</p>
+            <p>Here&apos;s some candy while you wait</p>
         </div>
     )
 }

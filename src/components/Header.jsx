@@ -7,14 +7,14 @@ const Header = () => {
     <div className={styles.headerContainer}>
       <div className={styles.header}>
         <Link className={styles.link} href="/">
-          {'notes <3'}
+          {'pet :)'}
         </Link>
         <Link className={styles.link} href="/Frog">
           frogs :)
         </Link>
-        <Link className={styles.link} href="/Spoopy">
+      {/*   <Link className={styles.link} href="/Spoopy">
           {"\u{1F47B}"}
-        </Link>
+        </Link> */}
       </div>
     </div>
   );

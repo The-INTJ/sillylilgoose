@@ -1,7 +1,7 @@
 'use client'
 import styles from "../styles/components/NoteCard/NoteCard.module.scss";
 import Image from "next/image";
-import pumpkinImage from "/public/pumpkin.png";
+import pumpkinImage from "../../public/pumpkin.png";
 import { useTheme } from "@lib/ThemeContext";
 
 const NoteCard = (props) => {

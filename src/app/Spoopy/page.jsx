@@ -1,9 +1,9 @@
 'use client'
 import styles from "@/styles/pages/spoopy/Spoopy.module.scss";
 import Image from "next/image";
-import img from "/public/ghostie.png";
+import img from "../../../public/ghostie.png";
 import NoteCard from '@/components/NoteCard';
-import spider from '/public/spider.png';
+import spider from '../../../public/spider.png';
 import Link from 'next/link';
 
 

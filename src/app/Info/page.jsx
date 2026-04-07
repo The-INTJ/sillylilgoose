@@ -3,24 +3,18 @@ import Frog from "@/components/Frog";
 import RevealText from "@/components/RevealText";
 import styles from "@/styles/pages/info/Info.module.scss";
 import { getInfo, getTitle } from "@lib/functions";
-import { useState, useEffect } from "react";
+import { useCachedData } from "@lib/hooks";
 
+const getServerData = async () => {
+  const info = await getInfo();
+  const title = await getTitle();
+  return { info, title };
+};
 
-const Info = (props) => {
-
-  const [info, setInfo] = useState(null);
-  const [title, setTitle] = useState('Loading...');
-
-  async function getServerData() {
-    const _info = await getInfo();
-    const _title = await getTitle();
-    setInfo(_info);
-    setTitle(_title);
-  }
-
-  useEffect(() => {
-    getServerData();
-  }, [])
+const Info = () => {
+  const data = useCachedData('infoData', getServerData);
+  const info = data?.info ?? null;
+  const title = data?.title ?? 'Loading...';
 
   return (
     <div className={styles.main}>
