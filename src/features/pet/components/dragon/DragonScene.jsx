@@ -41,7 +41,8 @@ export default function DragonScene({ petName, ownerName }) {
         scene="mainScreenIdle"
         useTimePassed
         ownerName={ownerName}
-        className={styles.idleMessage}
+        className={styles.idleBubble}
+        bubble
       />
     </div>
   );

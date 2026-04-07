@@ -94,7 +94,49 @@
   to   { opacity: 0; transform: translateY(-8px); }
 }
 
-/* ── Idle message ────────────────────────────────────────── */
+/* ── Idle message bubble ─────────────────────────────────── */
+
+.idleBubble {
+  background: var(--surface, #fff7f5);
+  border: 2px solid var(--border, #f0b8c8);
+  border-radius: 16px;
+  color: var(--text);
+  font-family: 'Caveat', cursive;
+  font-size: 1.3rem;
+  padding: 0.4rem 1.2rem;
+  position: relative;
+  text-align: center;
+  margin-top: 0.5rem;
+  animation: bubbleIn 0.4s ease-out;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid var(--border, #f0b8c8);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid var(--surface, #fff7f5);
+  }
+}
+
+/* ── Idle message (legacy plain text) ────────────────────── */
 
 .idleMessage {
   color: var(--text-muted, #9c7b6e);

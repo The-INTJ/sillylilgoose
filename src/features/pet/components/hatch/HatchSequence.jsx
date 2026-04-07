@@ -27,17 +27,18 @@ export default function HatchSequence({ onHatch }) {
 
   const handlePetNameSubmit = async (e) => {
     e.preventDefault();
-    if (petName.trim()) {
+    if (petName.trim() && !submitting) {
       setSubmitting(true);
+      setStep(STEPS.CELEBRATION);
 
-      try {
-        const didHatch = await onHatch(petName.trim(), playerName.trim());
-        if (didHatch) {
-          setStep(STEPS.CELEBRATION);
+      // Let the celebration play before transitioning to DragonScene
+      setTimeout(async () => {
+        try {
+          await onHatch(petName.trim(), playerName.trim());
+        } finally {
+          setSubmitting(false);
         }
-      } finally {
-        setSubmitting(false);
-      }
+      }, 4000);
     }
   };
 

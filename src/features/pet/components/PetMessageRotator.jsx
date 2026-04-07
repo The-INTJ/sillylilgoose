@@ -42,6 +42,7 @@ export default function PetMessageRotator({
   useTimePassed = false,
   ownerName,
   className,
+  bubble = false,
 }) {
   const pool = MESSAGES[scene] ?? [];
 
@@ -75,5 +76,13 @@ export default function PetMessageRotator({
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [useTimePassed, ownerName]);
 
-  return <p className={className}>{message}</p>;
+  if (bubble) {
+    return (
+      <div key={message} className={className}>
+        {message}
+      </div>
+    );
+  }
+
+  return <p key={message} className={className}>{message}</p>;
 }

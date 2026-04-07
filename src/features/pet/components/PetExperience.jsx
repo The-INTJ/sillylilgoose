@@ -29,7 +29,7 @@ export default function PetExperience() {
 
   return (
     <div className={styles.container}>
-      {storageMode === 'local' && (
+      {IS_PET_DEV && storageMode === 'local' && (
         <p className={styles.notice}>
           Pet progress is being saved on this device while Firebase access is blocked.
         </p>
@@ -46,13 +46,15 @@ export default function PetExperience() {
       {(state.visualStage === 'egg_idle' ||
         state.visualStage === 'egg_needs_feeding') && (
         <div className={styles.eggArea}>
-          {state.canFeed ? (
-            <p className={styles.timer}>ready! 🔥</p>
-          ) : state.msUntilCanFeed > 0 ? (
-            <p className={styles.timer}>
-              back in {formatMs(state.msUntilCanFeed)} 🌙
-            </p>
-          ) : null}
+          {IS_PET_DEV && (
+            state.canFeed ? (
+              <p className={styles.timer}>ready! 🔥</p>
+            ) : state.msUntilCanFeed > 0 ? (
+              <p className={styles.timer}>
+                back in {formatMs(state.msUntilCanFeed)} 🌙
+              </p>
+            ) : null
+          )}
           <div className={styles.sceneRow}>
             <EggScene
               feedingsCompleted={state.feedingsCompleted}
