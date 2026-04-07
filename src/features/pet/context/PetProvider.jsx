@@ -3,7 +3,7 @@
 import { useEffect, useState, useCallback, useRef } from 'react';
 import { PetContext } from './PetContext';
 import { derivePetState } from '../domain/petStateMachine';
-import { POLL_INTERVAL_MS } from '../domain/constants';
+import { getPollInterval } from '../domain/constants';
 import {
   getPetData,
   initializeEgg,
@@ -55,6 +55,12 @@ export default function PetProvider({ children }) {
           syncStorageMode();
           data = await fetchData();
           if (ignore) return;
+          // If Firestore write was forbidden, data is now in localStorage.
+          // fetchData already handles the fallback via getPetData, so data
+          // should be non-null here. If it's still null something else is wrong.
+          if (!data) {
+            setError('Could not initialize the pet. Try refreshing.');
+          }
         }
       } catch (nextError) {
         if (!ignore) {
@@ -76,7 +82,7 @@ export default function PetProvider({ children }) {
   }, [fetchData, handleError, syncStorageMode]);
 
   useEffect(() => {
-    const id = setInterval(() => setTick((t) => t + 1), POLL_INTERVAL_MS);
+    const id = setInterval(() => setTick((t) => t + 1), getPollInterval());
     return () => clearInterval(id);
   }, []);
 

@@ -6,7 +6,12 @@ export const IS_PET_DEV =
 // Timing
 export const FEED_INTERVAL_MS = 5 * 60 * 1000; // 5 minutes
 export const DEV_FEED_INTERVAL_MS = 10 * 1000;  // 10 seconds for testing
-export const POLL_INTERVAL_MS = 10 * 1000;      // re-derive state every 10s
+export const POLL_INTERVAL_MS = 10 * 1000;      // re-derive state every 10s (prod)
+export const DEV_POLL_INTERVAL_MS = 2 * 1000;   // 2 seconds in dev
+
+export function getPollInterval(): number {
+  return IS_PET_DEV ? DEV_POLL_INTERVAL_MS : POLL_INTERVAL_MS;
+}
 
 export const FEEDS_TO_HATCH = 3;
 

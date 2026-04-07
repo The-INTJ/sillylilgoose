@@ -35,11 +35,27 @@
   color: #8f3434;
 }
 
+.timer {
+  font-family: 'Caveat', cursive;
+  font-size: 1.4rem;
+  color: var(--text-muted, #9c7b6e);
+  text-align: center;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
 .eggArea {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+}
+
+.sceneRow {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 2.5rem;
 }
 
 .waitMessage {

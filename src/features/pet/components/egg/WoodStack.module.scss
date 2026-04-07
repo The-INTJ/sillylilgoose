@@ -1,0 +1,56 @@
+.stack {
+  display: flex;
+  flex-direction: column-reverse; /* rows build bottom-up visually */
+  align-items: center;
+  gap: 0;
+  user-select: none;
+  opacity: 0.45;
+  transition: opacity 0.4s ease;
+}
+
+.stack.active {
+  opacity: 1;
+}
+
+.label {
+  font-family: 'Caveat', cursive;
+  font-size: 1.1rem;
+  color: var(--text-muted, #9c7b6e);
+  margin: 0.5rem 0 0;
+  text-align: center;
+  order: 99; /* always at bottom (visually top in column-reverse) */
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: -0.2rem;
+  line-height: 1;
+  margin-top: -0.3rem;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.log {
+  font-size: 2.4rem;
+  display: inline-block;
+  line-height: 1;
+  transition: transform 0.15s ease, filter 0.15s ease;
+
+  .stack.active & {
+    cursor: grab;
+
+    &:hover {
+      transform: translateY(-4px) rotate(-10deg);
+      filter: brightness(1.2);
+    }
+
+    &:active {
+      cursor: grabbing;
+      transform: scale(1.18) rotate(-14deg);
+    }
+  }
+}

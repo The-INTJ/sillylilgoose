@@ -120,9 +120,19 @@ function updateLocalPetData(updater: (current: PetData) => PetData): PetData {
 export async function getPetData(): Promise<PetData | null> {
   try {
     const snap = await getDoc(petDocRef());
-    setPetStorageMode('firestore');
 
-    if (!snap.exists()) return null;
+    if (!snap.exists()) {
+      // Firestore doc is missing – check if a previous write fell back to localStorage
+      const localData = readLocalPetData();
+      if (localData) {
+        setPetStorageMode('local');
+        return localData;
+      }
+      setPetStorageMode('firestore');
+      return null;
+    }
+
+    setPetStorageMode('firestore');
 
     const raw = snap.data();
     return {

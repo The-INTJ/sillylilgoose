@@ -3,10 +3,18 @@
 import { usePet } from '@/features/pet';
 import { IS_PET_DEV } from '../domain/constants';
 import EggScene from './egg/EggScene';
-import FeedPrompt from './egg/FeedPrompt';
+import WoodStack from './egg/WoodStack';
 import HatchSequence from './hatch/HatchSequence';
 import DragonScene from './dragon/DragonScene';
 import styles from './PetExperience.module.scss';
+
+function formatMs(ms) {
+  if (ms <= 0) return '0s';
+  const totalSeconds = Math.ceil(ms / 1000);
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = totalSeconds % 60;
+  return minutes > 0 ? `${minutes}m ${seconds}s` : `${seconds}s`;
+}
 
 export default function PetExperience() {
   const { state, actions, loading, error, storageMode } = usePet();
@@ -38,11 +46,23 @@ export default function PetExperience() {
       {(state.visualStage === 'egg_idle' ||
         state.visualStage === 'egg_needs_feeding') && (
         <div className={styles.eggArea}>
-          <EggScene feedingsCompleted={state.feedingsCompleted} />
-
           {state.canFeed ? (
-            <FeedPrompt onFeed={actions.feed} />
-          ) : (
+            <p className={styles.timer}>🔥 ready to feed!</p>
+          ) : state.msUntilCanFeed > 0 ? (
+            <p className={styles.timer}>
+              next feeding in {formatMs(state.msUntilCanFeed)}
+            </p>
+          ) : null}
+          <div className={styles.sceneRow}>
+            <EggScene
+              feedingsCompleted={state.feedingsCompleted}
+              canFeed={state.canFeed}
+              onFeed={actions.feed}
+            />
+            <WoodStack canFeed={state.canFeed} />
+          </div>
+
+          {!state.canFeed && (
             <p className={styles.waitMessage}>
               The egg sits quietly by the warm fire...
             </p>
