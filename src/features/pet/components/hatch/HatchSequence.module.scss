@@ -1,0 +1,181 @@
+.sequence {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+}
+
+/* ── Cracking stage ──────────────────────────────────────── */
+
+.cracking {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: crackSequence 3s ease-in-out forwards;
+}
+
+.crackingEgg {
+  font-size: 6rem;
+  animation: intensifyShake 3s ease-in-out forwards;
+}
+
+.crackText {
+  color: var(--text);
+  font-family: 'Caveat', cursive;
+  font-size: 1.4rem;
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes crackSequence {
+  0%   { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes intensifyShake {
+  0%, 10%   { transform: rotate(0); }
+  12%       { transform: rotate(4deg); }
+  14%       { transform: rotate(-4deg); }
+  16%       { transform: rotate(0); }
+  30%, 40%  { transform: rotate(0); }
+  42%       { transform: rotate(6deg); }
+  44%       { transform: rotate(-6deg); }
+  46%       { transform: rotate(4deg); }
+  48%       { transform: rotate(-3deg); }
+  50%       { transform: rotate(0); }
+  65%, 70%  { transform: rotate(0); }
+  72%       { transform: rotate(8deg); }
+  73%       { transform: rotate(-8deg); }
+  74%       { transform: rotate(6deg); }
+  75%       { transform: rotate(-6deg); }
+  76%       { transform: rotate(4deg); }
+  77%       { transform: rotate(-3deg); }
+  78%       { transform: rotate(0); }
+  100%      { transform: rotate(0) scale(1.2); }
+}
+
+/* ── Input steps ─────────────────────────────────────────── */
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.hatchingEgg {
+  font-size: 5rem;
+  animation: gentleBounce 2s ease-in-out infinite;
+}
+
+.babyDragon {
+  font-size: 5rem;
+  animation: gentleBounce 2s ease-in-out infinite;
+}
+
+.prompt {
+  color: var(--text);
+  font-family: 'Caveat', cursive;
+  font-size: 1.4rem;
+  text-align: center;
+  margin: 0;
+}
+
+.inputForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.nameInput {
+  background: var(--surface, #fff7f5);
+  border: 2px solid var(--border, #f0b8c8);
+  border-radius: 12px;
+  color: var(--text);
+  font-family: 'Caveat', cursive;
+  font-size: 1.3rem;
+  padding: 0.6rem 1rem;
+  text-align: center;
+  outline: none;
+  width: 14rem;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+
+  &:focus {
+    border-color: var(--primary, #f4a0b5);
+    box-shadow: 0 0 8px var(--button-glow, rgba(255, 150, 185, 0.5));
+  }
+}
+
+.submitButton {
+  background-color: var(--button-bg, rgba(51, 51, 51, 0.05));
+  border: 2px solid var(--button-border, transparent);
+  border-radius: 12px;
+  color: var(--button-text, #333);
+  cursor: pointer;
+  font-family: 'Caveat', cursive;
+  font-size: 1.2rem;
+  padding: 0.5rem 1.5rem;
+  transition: all 200ms ease;
+
+  &:hover:not(:disabled) {
+    transform: scale(1.05);
+    box-shadow: 0 0 12px var(--button-glow, rgba(255, 150, 185, 0.5));
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+/* ── Celebration ─────────────────────────────────────────── */
+
+.celebration {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.rollingDragon {
+  font-size: 5rem;
+  animation: celebrationRoll 1.5s ease-in-out;
+}
+
+.celebrationText {
+  color: var(--text);
+  font-family: 'Caveat', cursive;
+  font-size: 1.6rem;
+  text-align: center;
+  max-width: 20rem;
+  animation: fadeIn 0.8s ease-out 0.3s both;
+}
+
+.sparkles {
+  font-size: 2rem;
+  animation: fadeIn 0.6s ease-out 0.6s both;
+}
+
+/* ── Shared keyframes ────────────────────────────────────── */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gentleBounce {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+@keyframes celebrationRoll {
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(360deg) translateX(20px); }
+  50%  { transform: rotate(720deg) translateX(0); }
+  75%  { transform: rotate(1080deg) translateX(-20px); }
+  100% { transform: rotate(1440deg) translateX(0); }
+}

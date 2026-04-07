@@ -1,0 +1,85 @@
+.scene {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  user-select: none;
+}
+
+/* ── Egg ─────────────────────────────────────────────────── */
+
+.eggWrapper {
+  animation: shake 4s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+.egg {
+  font-size: 6rem;
+  line-height: 1;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes shake {
+  0%, 88%, 100% { transform: rotate(0deg); }
+  90%           { transform: rotate(3deg); }
+  92%           { transform: rotate(-3deg); }
+  94%           { transform: rotate(2deg); }
+  96%           { transform: rotate(-1deg); }
+  98%           { transform: rotate(0deg); }
+}
+
+/* ── Fire ────────────────────────────────────────────────── */
+
+.fire {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -1rem;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.flames {
+  display: flex;
+  gap: 0;
+  line-height: 1;
+}
+
+.flame1,
+.flame2,
+.flame3 {
+  display: inline-block;
+  animation: flicker 1.2s ease-in-out infinite alternate;
+}
+
+.flame1 { animation-delay: 0s; }
+.flame2 { animation-delay: 0.3s; }
+.flame3 { animation-delay: 0.6s; }
+
+@keyframes flicker {
+  0%   { transform: scale(1) translateY(0); opacity: 0.9; }
+  50%  { transform: scale(1.08) translateY(-2px); opacity: 1; }
+  100% { transform: scale(0.95) translateY(1px); opacity: 0.85; }
+}
+
+.logs {
+  font-size: 1.5rem;
+  margin-top: -0.4rem;
+  letter-spacing: -0.3rem;
+}
+
+/* ── Fire intensity levels ───────────────────────────────── */
+
+.fireSmall .flames {
+  font-size: 1.5rem;
+  opacity: 0.7;
+}
+
+.fireMedium .flames {
+  font-size: 2rem;
+  opacity: 0.85;
+}
+
+.fireLarge .flames {
+  font-size: 2.5rem;
+  opacity: 1;
+}

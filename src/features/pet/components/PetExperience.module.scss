@@ -1,0 +1,65 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 2rem 1rem;
+}
+
+.loading {
+  font-size: 3rem;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.eggArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.waitMessage {
+  color: var(--text-muted, #9c7b6e);
+  font-family: 'Caveat', cursive;
+  font-size: 1.2rem;
+  text-align: center;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.feedCount {
+  color: var(--text-muted, #9c7b6e);
+  font-family: 'Caveat', cursive;
+  font-size: 1.1rem;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.5; transform: scale(1.1); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.devReset {
+  position: fixed;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  color: var(--text-muted, #999);
+  cursor: pointer;
+  font-size: 0.7rem;
+  line-height: 1;
+  padding: 0.2rem 0.35rem;
+  opacity: 0.4;
+  z-index: 9999;
+  transition: opacity 150ms ease;
+
+  &:hover {
+    opacity: 1;
+  }
+}

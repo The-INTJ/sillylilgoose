@@ -1,0 +1,111 @@
+.scene {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem 1rem;
+  user-select: none;
+}
+
+/* ── Name tag ────────────────────────────────────────────── */
+
+.nameTag {
+  color: var(--primary, #f4a0b5);
+  font-family: 'Caveat', cursive;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-shadow: 0 1px 4px var(--shadow, rgba(212, 130, 158, 0.25));
+}
+
+/* ── Dragon ──────────────────────────────────────────────── */
+
+.dragon {
+  font-size: 5rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--primary, #f4a0b5);
+    outline-offset: 8px;
+    border-radius: 50%;
+  }
+}
+
+.wander {
+  animation: wander 6s ease-in-out infinite;
+}
+
+.roll {
+  animation: doRoll 1.2s ease-in-out;
+}
+
+@keyframes wander {
+  0%, 100% { transform: translateX(0); }
+  25%      { transform: translateX(30px); }
+  75%      { transform: translateX(-30px); }
+}
+
+@keyframes doRoll {
+  0%   { transform: rotate(0deg) scale(1); }
+  30%  { transform: rotate(360deg) scale(1.1) translateX(20px); }
+  60%  { transform: rotate(720deg) scale(1) translateX(-15px); }
+  100% { transform: rotate(1080deg) scale(1) translateX(0); }
+}
+
+/* ── Speech bubble ───────────────────────────────────────── */
+
+.speechBubble {
+  background: var(--surface, #fff7f5);
+  border: 2px solid var(--border, #f0b8c8);
+  border-radius: 16px;
+  color: var(--text);
+  font-family: 'Caveat', cursive;
+  font-size: 1.4rem;
+  padding: 0.4rem 1rem;
+  position: relative;
+  animation: bubbleIn 0.3s ease-out, bubbleOut 0.5s ease-in 1.5s forwards;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid var(--border, #f0b8c8);
+  }
+}
+
+@keyframes bubbleIn {
+  from { opacity: 0; transform: scale(0.8) translateY(4px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes bubbleOut {
+  from { opacity: 1; }
+  to   { opacity: 0; transform: translateY(-8px); }
+}
+
+/* ── Idle message ────────────────────────────────────────── */
+
+.idleMessage {
+  color: var(--text-muted, #9c7b6e);
+  font-family: 'Caveat', cursive;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 1rem;
+  animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}

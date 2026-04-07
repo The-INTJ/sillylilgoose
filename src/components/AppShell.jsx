@@ -6,6 +6,7 @@ import Loading from '@/app/loading';
 import ThemeProvider from '@/components/ThemeProvider';
 import { UserContext } from '@lib/context';
 import { useUserData } from '@lib/hooks';
+import { PetProvider } from '@/features/pet';
 
 export default function AppShell({ children }) {
   const userData = useUserData();
@@ -14,10 +15,10 @@ export default function AppShell({ children }) {
     <ThemeProvider>
       <UserContext.Provider value={userData}>
         {userData.loading ? <Loading /> : userData.username ? (
-          <>
+          <PetProvider>
             <Header />
             {children}
-          </>
+          </PetProvider>
         ) : (
           <Login />
         )}
